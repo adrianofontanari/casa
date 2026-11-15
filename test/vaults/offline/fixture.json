@@ -1,0 +1,17 @@
+{
+  "description": "Like daily-core, plus a note for today, plus Casa settings (plugins/casa/data.json, shape of src/plugin/store.js) with every network feature off: a city is set (fictional, 0,0) so the weatherOn/airOn/webcamOn/musicOn switches are what keeps it offline; no calendar URL. A run on this vault must make zero external requests from Casa.",
+  "generate": [
+    {
+      "path": "Journal/<<date:0>>.md",
+      "from": "_gen/today.md"
+    },
+    {
+      "path": "Journal/<<date:-1>>.md",
+      "from": "_gen/yesterday.md"
+    },
+    {
+      "path": "Journal/<<date:-2>>.md",
+      "from": "_gen/two-days-ago.md"
+    }
+  ]
+}

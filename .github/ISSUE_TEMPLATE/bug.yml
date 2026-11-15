@@ -1,0 +1,76 @@
+name: Bug report
+description: Something in Casa does not work as it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. Please do not paste private notes, calendar links, tokens or personal data. A short example line is enough.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what you saw instead.
+      placeholder: I ticked a task in the agenda, but the checkbox in my note did not change.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the room
+        2. Click the agenda
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: casa-version
+    attributes:
+      label: Casa version
+      description: Settings > Community plugins > Casa.
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: obsidian-version
+    attributes:
+      label: Obsidian version
+      description: Settings > General.
+      placeholder: 1.9.0
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Windows
+        - Linux
+    validations:
+      required: true
+  - type: dropdown
+    id: daily
+    attributes:
+      label: How do you keep daily notes?
+      options:
+        - Core Daily notes plugin
+        - Periodic Notes plugin
+        - Journals plugin
+        - No daily notes (Casa default)
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example line (optional)
+      description: A made-up line in the same shape as yours, for example a task or a goal line. No real content needed.
+      render: markdown
+  - type: textarea
+    id: console
+    attributes:
+      label: Console errors (optional)
+      description: View > Toggle Developer Tools > Console. Paste any red lines that mention Casa.
+      render: text

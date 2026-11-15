@@ -1,0 +1,220 @@
+{
+  "checked": "2026-11-09T23:06:57.807Z",
+  "requests": [
+    "https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics",
+    "https://calendars.icloud.com/holidays/us_en.ics"
+  ],
+  "cals": [
+    {
+      "name": "Holidays in United States",
+      "color": "#4f7fd9",
+      "count": 10
+    },
+    {
+      "name": "US Holidays",
+      "color": "#d97a4f",
+      "count": 12
+    }
+  ],
+  "sample": [
+    {
+      "title": "Daylight Saving Time ends",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2026-11-01",
+      "end": "2026-11-02",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Daylight Saving Time End",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-11-01",
+      "end": "2026-11-02",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Day of the Dead",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-11-02",
+      "end": "2026-11-03",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Election Day",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2026-11-03",
+      "end": "2026-11-04",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Election Day",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-11-03",
+      "end": "2026-11-04",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Veterans Day",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2026-11-11",
+      "end": "2026-11-12",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Veterans Day",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-11-11",
+      "end": "2026-11-12",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Thanksgiving Day",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2026-11-26",
+      "end": "2026-11-27",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Thanksgiving",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-11-26",
+      "end": "2026-11-27",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Black Friday",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2026-11-27",
+      "end": "2026-11-28",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Hanukkah (1st day)",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-12-05",
+      "end": "2026-12-06",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Christmas Eve",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2026-12-24",
+      "end": "2026-12-25",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Christmas Eve",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-12-24",
+      "end": "2026-12-25",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Christmas Day",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2026-12-25",
+      "end": "2026-12-26",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Christmas Day",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-12-25",
+      "end": "2026-12-26",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Kwanzaa",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-12-26",
+      "end": "2026-12-27",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "New Year's Eve",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2026-12-31",
+      "end": "2027-01-01",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "New Year’s Eve",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2026-12-31",
+      "end": "2027-01-01",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "New Year's Day",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2027-01-01",
+      "end": "2027-01-02",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "New Year’s Day",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2027-01-01",
+      "end": "2027-01-02",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Martin Luther King Jr. Day",
+      "cal": "Holidays in United States",
+      "color": "#4f7fd9",
+      "start": "2027-01-18",
+      "end": "2027-01-19",
+      "allDay": true,
+      "days": 1
+    },
+    {
+      "title": "Martin Luther King Jr. Day",
+      "cal": "US Holidays",
+      "color": "#d97a4f",
+      "start": "2027-01-18",
+      "end": "2027-01-19",
+      "allDay": true,
+      "days": 1
+    }
+  ],
+  "error": null
+}

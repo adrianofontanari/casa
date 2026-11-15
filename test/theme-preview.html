@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa theme preview</title>
+<style>
+  :root { --bg: #1b2124; --fg: #e8e4da; --mute: #9aa3a0; --card: #252d30; }
+  body { margin: 0; padding: 20px 24px 40px; background: var(--bg); color: var(--fg); font: 13px/1.4 ui-monospace, Menlo, monospace; }
+  h1 { font-size: 16px; margin: 0 0 4px; }
+  h2 { font-size: 13px; margin: 22px 0 8px; color: var(--mute); text-transform: uppercase; letter-spacing: .06em; }
+  .row { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; }
+  .cell { background: var(--card); padding: 8px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .cell span { color: var(--mute); font-size: 11px; }
+  canvas { image-rendering: pixelated; display: block; }
+  .strip { display: grid; grid-template-columns: 64px repeat(var(--n), 27px); gap: 2px; align-items: center; }
+  .sw { width: 27px; height: 24px; }
+  .lab { color: var(--mute); font-size: 10px; writing-mode: vertical-rl; transform: rotate(180deg); height: 64px; overflow: hidden; }
+  #status { color: var(--mute); }
+</style>
+</head>
+<body>
+<h1>Casa theme preview</h1>
+<div id="status">rendering…</div>
+
+<h2>Buddy, every mood and frame (x1, x2, x4)</h2>
+<div id="buddy"></div>
+
+<h2>Buddy at night (k = 0.62), on the graded wall</h2>
+<div class="row" id="buddyNight"></div>
+
+<h2>Dog, every gait and frame (x2), and mirrored</h2>
+<div id="dog"></div>
+
+<h2>Palette before / after grade (top: base, middle: grade(), bottom: resolved = P or grade)</h2>
+<div id="pal"></div>
+
+<h2>Room swatch: base vs theme (wall, floor, desk, plant, buddy, dog)</h2>
+<div class="row" id="room"></div>
+
+<script src="../src/room/theme/theme.js"></script>
+<script src="../src/room/engine/pixel.js" onerror="window.__noPIX = true"></script>
+<script>
+(function () {
+  const T = window.CasaTheme;
+  const $ = (id) => document.getElementById(id);
+  const cv = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
+  const cell = (parent, canvas, label) => {
+    const d = document.createElement('div'); d.className = 'cell'; d.appendChild(canvas);
+    const s = document.createElement('span'); s.textContent = label; d.appendChild(s); parent.appendChild(d); return d;
+  };
+  const rgb = (c) => `rgb(${c[0]},${c[1]},${c[2]})`;
+  const WALL = T.P.plast;
+
+  // ---- buddy
+  const scales = [1, 2, 4];
+  for (const mood of Object.keys(T.buddy.moods)) {
+    const n = T.buddy.moods[mood].n;
+    const row = document.createElement('div'); row.className = 'row'; row.style.marginBottom = '10px';
+    for (const u of scales) for (let f = 0; f < n; f++) {
+      if (u === 4 && f > 0 && mood !== 'wave' && mood !== 'sleep') continue;
+      const top = mood === 'sleep' ? 10 * u : 0;
+      const c = cv(T.buddy.w * u + 8 * u, T.buddy.h * u + top);
+      const x = c.getContext('2d');
+      x.fillStyle = rgb(WALL); x.fillRect(0, 0, c.width, c.height);
+      T.buddy.draw(x, 4 * u, top, u, f, mood);
+      cell(row, c, `${mood} f${f} x${u}`);
+    }
+    $('buddy').appendChild(row);
+  }
+  for (const mood of ['idle', 'sleep', 'wave']) {
+    const u = 3, top = 10 * u, c = cv(T.buddy.w * u + 12 * u, T.buddy.h * u + top);
+    const x = c.getContext('2d');
+    const wallN = [0, 1, 2].map((i) => Math.round(WALL[i] + (T.P.night[i] - WALL[i]) * 0.62));
+    x.fillStyle = rgb(wallN); x.fillRect(0, 0, c.width, c.height);
+    T.buddy.draw(x, 6 * u, top, u, mood === 'sleep' ? 2 : 1, mood, { k: 0.62, flip: mood === 'wave' });
+    cell($('buddyNight'), c, `${mood} night${mood === 'wave' ? ' flip' : ''}`);
+  }
+
+  // ---- dog
+  const FLOOR = T.grade([0xBF, 0x8C, 0x5B]);
+  for (const gait of Object.keys(T.pet.gaits)) {
+    const n = T.pet.gaits[gait].n;
+    const row = document.createElement('div'); row.className = 'row'; row.style.marginBottom = '10px';
+    for (let f = 0; f < n; f++) {
+      const u = 2, c = cv(T.pet.w * u + 8, T.pet.h * u + 8);
+      const x = c.getContext('2d');
+      x.fillStyle = rgb(FLOOR); x.fillRect(0, 0, c.width, c.height);
+      T.pet.draw(x, 4, 4, u, gait, f);
+      cell(row, c, `${gait} f${f}`);
+    }
+    const u = 2, c = cv(T.pet.w * u + 8, T.pet.h * u + 8), x = c.getContext('2d');
+    x.fillStyle = rgb(T.grade([0x6A, 0x33, 0x20])); x.fillRect(0, 0, c.width, c.height);
+    T.pet.draw(x, 4, 4, u, gait, 0, { right: true, k: 0.3 });
+    cell(row, c, `${gait} right k.3`);
+    $('dog').appendChild(row);
+  }
+  // big ones, x4
+  const big = document.createElement('div'); big.className = 'row';
+  for (const gait of ['stand', 'sit', 'lie', 'sleep']) {
+    const u = 4, c = cv(T.pet.w * u + 16, T.pet.h * u + 16), x = c.getContext('2d');
+    x.fillStyle = rgb(FLOOR); x.fillRect(0, 0, c.width, c.height);
+    T.pet.draw(x, 8, 8, u, gait, 0);
+    cell(big, c, `${gait} x4`);
+  }
+  $('dog').appendChild(big);
+
+  // ---- palette (base tones of the room, as numbers)
+  const BASE = {
+    ink: [0x0B, 0x0D, 0x12], coal: [0x16, 0x1A, 0x24], slate: [0x24, 0x2C, 0x3C], blue: [0x38, 0x44, 0x5C],
+    steel: [0x56, 0x65, 0x7F], mist: [0x8E, 0x9C, 0xB4], pale: [0xC6, 0xCE, 0xDC], bone: [0xF4, 0xF1, 0xEA],
+    plas: [0x60, 0x6F, 0x80], plast: [0x55, 0x63, 0x72], plasd: [0x3F, 0x49, 0x55], plasx: [0x2A, 0x30, 0x37],
+    gold: [0xF2, 0xC1, 0x4E], amber: [0xB8, 0x86, 0x2B], verm: [0xD2, 0x47, 0x3A], rust: [0x7E, 0x2A, 0x22],
+    flame: [0xFC, 0x94, 0x3E], hay: [0xFD, 0xC8, 0x5D], leaf: [0x5F, 0xB8, 0x6D], moss: [0x3E, 0x8B, 0x4C],
+    pine: [0x1F, 0x5A, 0x2E], oak: [0xBF, 0x8C, 0x5B], wood: [0xA6, 0x54, 0x29], umber: [0x6A, 0x33, 0x20],
+    dark: [0x3E, 0x1D, 0x16], soot: [0x2D, 0x13, 0x0B], night: [0x15, 0x1A, 0x27],
+  };
+  const SRC = (typeof PIX !== 'undefined' && PIX.BASE) ? PIX.BASE : BASE;
+  window.__BASE = SRC;
+  const names = Object.keys(SRC), res = T.palette(SRC);
+  const strip = document.createElement('div'); strip.className = 'strip'; strip.style.setProperty('--n', names.length);
+  const add = (el) => strip.appendChild(el);
+  const lab = (t) => { const d = document.createElement('div'); d.textContent = t; d.style.color = 'var(--mute)'; return d; };
+  const sw = (c) => { const d = document.createElement('div'); d.className = 'sw'; d.style.background = rgb(c); return d; };
+  add(lab('tone')); names.forEach((n) => { const d = document.createElement('div'); d.className = 'lab'; d.textContent = n; add(d); });
+  add(lab('base')); names.forEach((n) => add(sw(SRC[n])));
+  add(lab('grade()')); names.forEach((n) => add(sw(T.grade(SRC[n]))));
+  add(lab('by day')); names.forEach((n) => add(sw(res[n])));
+  add(lab('trees')); names.forEach((n) => add(sw(T.trees[n] || [0x1b, 0x21, 0x24])));
+  $('pal').appendChild(strip);
+
+  // ---- room swatch: a block sketch only, to judge contrast
+  function swatch(P, themed) {
+    const u = 3, W = 150, H = 92, c = cv(W * u, H * u), x = c.getContext('2d');
+    const r = (px, py, w, h, col) => { x.fillStyle = rgb(col); x.fillRect(px * u, py * u, w * u, h * u); };
+    r(0, 0, W, 60, P.plast); r(0, 0, W, 6, P.plasd); r(0, 56, W, 4, P.dark);
+    r(0, 60, W, 32, P.oak); for (let i = 0; i < W; i += 10) r(i, 60, 1, 32, P.wood);
+    r(56, 10, 36, 26, P.steel); r(58, 12, 32, 22, P.blue);
+    r(20, 40, 90, 4, P.oak); r(20, 44, 90, 2, P.umber); r(24, 46, 3, 14, P.umber); r(103, 46, 3, 14, P.umber);
+    r(96, 30, 8, 10, P.leaf); r(97, 32, 6, 6, P.moss); r(98, 40, 4, 4, P.rust);
+    if (themed) {
+      T.buddy.draw(x, 66 * u, (40 - 28) * u, u, 0, 'idle');
+      T.pet.draw(x, 16 * u, (90 - 31) * u, u, 'lie', 0, { right: true });
+    } else {
+      x.fillStyle = '#9aa3a0'; x.font = `${4 * u}px monospace`; x.fillText('base palette', 4 * u, 88 * u);
+    }
+    return c;
+  }
+  cell($('room'), swatch(SRC, false), 'base');
+  cell($('room'), swatch(res, true), 'theme');
+  // the sprites after the room's own pass (night shade then grade on every pixel), to check they survive it
+  for (const k of [0, 0.62]) {
+    const u = 3, c = cv(120 * u, 34 * u), x = c.getContext('2d');
+    x.fillStyle = rgb(T.P.plast); x.fillRect(0, 0, c.width, c.height);
+    T.buddy.draw(x, 4 * u, 4 * u, u, 0, 'idle');
+    T.pet.draw(x, 40 * u, 2 * u, u, 'sit', 0);
+    T.pet.draw(x, 72 * u, 2 * u, u, 'stand', 0, { right: true });
+    const id = x.getImageData(0, 0, c.width, c.height), d = id.data, N = T.P.night;
+    for (let i = 0; i < d.length; i += 4) {
+      const g = T.grade([d[i] + (N[0] - d[i]) * k, d[i + 1] + (N[1] - d[i + 1]) * k, d[i + 2] + (N[2] - d[i + 2]) * k].map(Math.round));
+      d[i] = g[0]; d[i + 1] = g[1]; d[i + 2] = g[2];
+    }
+    x.putImageData(id, 0, 0);
+    cell($('room'), c, k ? 'through shade(k .62) + grade' : 'through grade (day)');
+  }
+
+  $('status').textContent = 'ok ' + (SRC === BASE ? 'fixture palette' : 'engine PIX.BASE') + ' ' + JSON.stringify(T._debug.stats());
+  window.__done = true;
+})();
+</script>
+</body>
+</html>

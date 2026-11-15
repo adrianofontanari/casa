@@ -1,0 +1,131 @@
+{
+  "checked": "2026-11-09T23:07:32.492Z",
+  "obsidian": {
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) obsidian/1.14.5 Chrome/150.0.7871.250 Electron/43.8.3 Safari/537.36"
+  },
+  "roomCsp": "default-src 'none'; script-src 'unsafe-inline' blob:; style-src 'unsafe-inline'; img-src data: blob:; media-src data: blob: https:; font-src data:; connect-src data: blob:; worker-src blob:",
+  "routes": {
+    "geocode": {
+      "status": 200,
+      "first": {
+        "name": "Lisbon",
+        "country": "Portugal",
+        "admin1": "Lisbon District",
+        "lat": 38.7251,
+        "lon": -9.1498,
+        "countryCode": "PT",
+        "timezone": "Europe/Lisbon",
+        "population": 517802
+      }
+    },
+    "weather": {
+      "status": 200,
+      "temp": 21,
+      "code": 3,
+      "code_hour": 3,
+      "sun": {
+        "rise": "06:43",
+        "set": "17:02",
+        "rise_h": 6.7167,
+        "set_h": 17.0333
+      },
+      "where": {
+        "name": "San Francisco",
+        "lat": 37.7749,
+        "lon": -122.4194
+      }
+    },
+    "forecast": {
+      "status": 200,
+      "daily": 7,
+      "hourly": 24
+    },
+    "air": {
+      "status": 200,
+      "aqi": 25,
+      "scale": "eu",
+      "band": "fair",
+      "pm25": 7.3
+    },
+    "webcam": {
+      "status": 200,
+      "srcStart": "data:image/jpeg;base64,/9j/4AA",
+      "srcLength": 107735,
+      "w": 2880,
+      "h": 300,
+      "at": "2026-11-09T22:10:00.000Z",
+      "credit": "NOAA National Data Buoy Center, station 46026, 18 nm west of San Francisco"
+    },
+    "calendar": {
+      "status": 200,
+      "events": 10,
+      "cals": [
+        {
+          "name": "US Holidays",
+          "color": "#4f7fd9",
+          "count": 10
+        }
+      ],
+      "error": null
+    },
+    "music": {
+      "status": 200,
+      "tracks": 8
+    },
+    "webcamOff": {
+      "off": true,
+      "reason": "webcam is off"
+    }
+  },
+  "battery": {
+    "exists": true,
+    "level": 1,
+    "charging": true
+  },
+  "aacDecode": {
+    "ok": true,
+    "seconds": 127.8,
+    "sampleRate": 48000,
+    "channels": 2
+  },
+  "aacCanPlayType": "probably",
+  "httpsAudio": {
+    "ok": true,
+    "currentTime": 3.96,
+    "mediaError": null
+  },
+  "ambientFromBuild": true,
+  "cpu": {
+    "roomIdle": {
+      "cpuSeconds": 0.24,
+      "wallSeconds": 15.1,
+      "percentOfOneCore": 1.6
+    },
+    "ambientSea": {
+      "cpuSeconds": 0.77,
+      "wallSeconds": 15.1,
+      "percentOfOneCore": 5.1
+    },
+    "ambientRain": {
+      "cpuSeconds": 0.46,
+      "wallSeconds": 15,
+      "percentOfOneCore": 3.1
+    },
+    "ambientStopped": {
+      "cpuSeconds": 0.24,
+      "wallSeconds": 15,
+      "percentOfOneCore": 1.6
+    }
+  },
+  "ambientStart": {
+    "ok": true,
+    "playing": "sea",
+    "renderAndStartMs": 50,
+    "state": "running"
+  },
+  "ambientAfterStop": {
+    "state": "suspended",
+    "playing": null
+  },
+  "cspMessages": []
+}

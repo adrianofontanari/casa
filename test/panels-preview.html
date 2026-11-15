@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa panels preview</title>
+<!-- Dev page for the room panels (src/room/panels). Opens each panel by dispatching casa:open.
+     ?room=0 leaves the room canvas out (panels only), ?shots=1 hides the dev bar,
+     ?open=<id> opens one panel on load. Proof: test/panels_shots.py -->
+<link rel="stylesheet" href="../src/room/room.css">
+<style>
+  html,body{margin:0;height:100%;background:#2a2f3a}
+  .pv-bar{position:fixed;left:8px;bottom:8px;z-index:900;display:flex;flex-wrap:wrap;gap:4px;max-width:calc(100% - 16px);
+    font:12px/1 ui-monospace,Menlo,monospace}
+  .pv-bar button{padding:6px 8px;border:1px solid #111;background:#f4eedf;cursor:pointer}
+  .pv-noroom{position:fixed;inset:0;display:grid;place-items:center;color:#8c93a3;font:14px ui-monospace,Menlo,monospace}
+</style>
+</head>
+<body>
+<main id="casa-room" class="casa-room" aria-label="Casa room">
+  <div class="casa-stage">
+    <canvas class="casa-canvas" aria-hidden="true"></canvas>
+    <canvas class="casa-sprite casa-fall" aria-hidden="true"></canvas>
+    <canvas class="casa-sprite casa-buddy" aria-hidden="true"></canvas>
+    <canvas class="casa-sprite casa-pet" aria-hidden="true"></canvas>
+    <div class="casa-goal" aria-hidden="true"><span></span></div>
+    <div class="casa-slip" aria-hidden="true"></div>
+    <nav class="casa-hots" aria-label="Objects in the room"></nav>
+    <div class="casa-label" role="tooltip" hidden></div>
+  </div>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var withRoom = q.get('room') !== '0';
+  // same order as src/room/order.txt (onboarding.js left out: it would open its own card)
+  var ROOM = ['theme/theme.js', 'engine/pace.js', 'engine/pixel.js', 'engine/font.js', 'engine/astro.js', 'engine/sky.js',
+    'engine/kept.js', 'engine/layout.js', 'decor/shell.js', 'decor/window.js', 'decor/furniture.js', 'decor/objects.js', 'engine/room.js'];
+  var CORE = ['engine/pace.js', 'engine/kept.js'];
+  var PANELS = ['panels/ambient.js', 'panels/shell.js', 'panels/goal.js', 'panels/agenda.js', 'panels/calendar.js', 'panels/window.js',
+    'panels/tv.js', 'panels/typewriter.js', 'panels/headphones.js', 'panels/cork.js', 'panels/strip.js', 'panels/buddy.js', 'panels/soon.js'];
+  var list = ['dev/mock-bridge.js', '../../test/panels-fixtures.js'].concat(withRoom ? ROOM : CORE, PANELS);
+  window.__previewScripts = list;
+  if (!withRoom) {
+    document.getElementById('casa-room').hidden = true;
+    var n = document.createElement('div'); n.className = 'pv-noroom'; n.textContent = 'room left out (?room=0)';
+    document.body.appendChild(n);
+  }
+  list.forEach(function (s) {
+    var el = document.createElement('script');
+    el.src = '../src/room/' + s;
+    el.async = false;
+    document.body.appendChild(el);
+  });
+  var done = document.createElement('script');
+  done.src = 'data:text/javascript,window.__previewReady=true';
+  done.async = false;
+  document.body.appendChild(done);
+  window.addEventListener('load', function () {
+    if (q.get('shots') !== '1') {
+      var bar = document.createElement('div'); bar.className = 'pv-bar';
+      ['goal', 'agenda', 'calendar', 'window', 'tv', 'typewriter', 'headphones', 'cork', 'strip', 'buddy', 'chair', 'backpack'].forEach(function (id) {
+        var b = document.createElement('button'); b.type = 'button'; b.textContent = id;
+        b.addEventListener('click', function () { document.dispatchEvent(new CustomEvent('casa:open', { detail: { id: id } })); });
+        bar.appendChild(b);
+      });
+      document.body.appendChild(bar);
+    }
+    var open = q.get('open');
+    if (open) document.dispatchEvent(new CustomEvent('casa:open', { detail: { id: open } }));
+  });
+})();
+</script>
+</body>
+</html>

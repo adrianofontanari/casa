@@ -1,0 +1,50 @@
+# Room scripts, concatenated in this order into the iframe document (paths relative to src/room/).
+# Lines starting with # are comments. Owners of other folders append their files with a comment.
+# The engine reads window.CasaTheme lazily (at draw time), so theme files may sit anywhere,
+# but keep them first so the theme is ready for the first paint.
+
+# --- theme (Agent 5): must load first
+theme/theme.js
+
+# --- engine (Agent 3)
+engine/pace.js
+engine/pixel.js
+engine/font.js
+engine/astro.js
+engine/sky.js
+engine/kept.js
+engine/layout.js
+
+# --- decor and objects (Agent 3)
+decor/shell.js
+decor/window.js
+decor/furniture.js
+decor/objects.js
+
+# --- room runtime: compose, light, hotspots, loops (Agent 3, keep after decor)
+engine/room.js
+
+# --- panels (Agent 4/6/7) go below
+# ambient sound synth, window.CasaAmbient (Agent 6)
+panels/ambient.js
+# Agent 7: first-run card, window.CasaOnboarding
+panels/onboarding.js
+# Agent 4: panel shell first (window.CasaPanels), then one file per panel
+panels/shell.js
+panels/goal.js
+panels/agenda.js
+panels/calendar.js
+panels/window.js
+panels/tv.js
+panels/typewriter.js
+panels/headphones.js
+panels/cork.js
+panels/strip.js
+panels/buddy.js
+panels/soon.js
+# the ticket under the calendar: a prompt to add your own object
+panels/widget.js
+# the mug on the desk: today's note, read only
+panels/today.js
+# the put-away box on the floor: bring objects back
+panels/box.js

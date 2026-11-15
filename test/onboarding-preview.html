@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa onboarding preview</title>
+<!-- Dev preview of the first-run card over the room, with the mock bridge.
+     Query: ?scenario=found|none|nogeo|done  (found: core Daily notes in Journal/; none: no daily notes yet;
+     nogeo: /api/geocode missing; done: city and calendar already set).
+     Screenshots: ~/.venvs/main/bin/python -I test/onboarding_shots.py -> test/out/onboarding/ -->
+<link rel="stylesheet" href="../src/room/room.css">
+</head>
+<body>
+<main id="casa-room" class="casa-room" aria-label="Casa room">
+  <div class="casa-stage">
+    <canvas class="casa-canvas" aria-hidden="true"></canvas>
+    <canvas class="casa-sprite casa-fall" aria-hidden="true"></canvas>
+    <canvas class="casa-sprite casa-buddy" aria-hidden="true"></canvas>
+    <canvas class="casa-sprite casa-pet" aria-hidden="true"></canvas>
+    <div class="casa-goal" aria-hidden="true"><span></span></div>
+    <div class="casa-slip" aria-hidden="true"></div>
+    <nav class="casa-hots" aria-label="Objects in the room"></nav>
+    <div class="casa-label" role="tooltip" hidden></div>
+  </div>
+</main>
+<script src="../src/room/dev/mock-bridge.js"></script>
+<script>
+/* Preview-only: onboarding fixtures and the native-prompt steps, simulated. */
+(function () {
+  const qs = new URLSearchParams(location.search);
+  const scen = qs.get('scenario') || 'found';
+  const db = window.__mockDB;
+  const d = new Date();
+  const today = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  const daily = scen === 'none'
+    ? { source: 'casa', label: 'Casa', folder: 'Daily', format: 'YYYY-MM-DD', template: '', path: 'Daily/' + today + '.md', example: today, exists: false, found: 0, enabled: true, custom: false, guessed: false }
+    : { source: 'core', label: 'Daily notes', folder: 'Journal', format: 'YYYY-MM-DD', template: 'Templates/Daily', path: 'Journal/' + today + '.md', example: today, exists: true, found: 12, enabled: true, custom: false, guessed: false };
+  db.onboarding = { daily, city: null, calendar: false, done: false };
+  if (scen === 'done') { db.onboarding.city = { name: 'Lisbon, Portugal', lat: 38.72, lon: -9.14 }; db.onboarding.calendar = true; }
+  const CITIES = [
+    { name: 'Lisbon', country: 'Portugal', admin1: 'Lisbon', lat: 38.72, lon: -9.14 },
+    { name: 'Lisburn', country: 'United Kingdom', admin1: 'Northern Ireland', lat: 54.51, lon: -6.04 },
+    { name: 'Lismore', country: 'Australia', admin1: 'New South Wales', lat: -28.81, lon: 153.28 },
+  ];
+  const json = (o, status) => new Response(JSON.stringify(o), { status: status || 200, headers: { 'content-type': 'application/json' } });
+  const inner = window.fetch;
+  window.__events = [];
+  ['casa:data', 'casa:hint'].forEach((n) => document.addEventListener(n, (e) => window.__events.push([n, e.detail])));
+  window.__posts = [];
+  window.fetch = async (url, opts) => {
+    const u = new URL(url, 'http://casa.local');
+    const method = (opts && opts.method) || 'GET';
+    if (u.pathname === '/api/geocode') {
+      if (scen === 'nogeo') return json({ error: 'unknown route geocode' }, 404);
+      const q = (u.searchParams.get('q') || '').toLowerCase();
+      return json({ results: CITIES.filter((c) => c.name.toLowerCase().startsWith(q)) });
+    }
+    if (u.pathname === '/api/onboarding' && method === 'POST') {
+      const b = JSON.parse((opts && opts.body) || '{}');
+      window.__posts.push(b);
+      if (b.step === 'city') db.onboarding.city = b.city;
+      if (b.step === 'calendar') { db.onboarding.calendar = true; return json({ saved: true }); }
+      if (b.step === 'folder') { Object.assign(db.onboarding.daily, { folder: 'Life/Journal', custom: true, source: 'casa' }); return json({ saved: true }); }
+      if (b.step === 'done') db.onboarding.done = true;
+      return json(db.onboarding);
+    }
+    return inner(url, opts);
+  };
+})();
+</script>
+<script src="../src/room/theme/theme.js"></script>
+<script src="../src/room/engine/pace.js"></script>
+<script src="../src/room/engine/pixel.js"></script>
+<script src="../src/room/engine/font.js"></script>
+<script src="../src/room/engine/astro.js"></script>
+<script src="../src/room/engine/sky.js"></script>
+<script src="../src/room/engine/kept.js"></script>
+<script src="../src/room/engine/layout.js"></script>
+<script src="../src/room/decor/shell.js"></script>
+<script src="../src/room/decor/window.js"></script>
+<script src="../src/room/decor/furniture.js"></script>
+<script src="../src/room/decor/objects.js"></script>
+<script src="../src/room/engine/room.js"></script>
+<script src="../src/room/panels/onboarding.js"></script>
+</body>
+</html>

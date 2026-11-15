@@ -1,0 +1,135 @@
+/* Casa room: page frame, canvas layers, hotspots and the hover label.
+   The canvases are sized by engine/room.js in whole device pixels per
+   logical pixel; CSS only stacks them and keeps them crisp. */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1a1f26;
+}
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.casa-room {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #1a1f26;
+  touch-action: manipulation;
+}
+.casa-stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.casa-canvas,
+.casa-sprite {
+  position: absolute;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  pointer-events: none;
+}
+.casa-canvas { left: 0; top: 0; }
+.casa-goal {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.casa-goal span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.casa-slip {
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.casa-hots { position: absolute; inset: 0; }
+.casa-hot {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.casa-hot:focus { outline: none; }
+.casa-hot:focus-visible { outline: 2px solid rgba(242, 193, 78, 0.95); outline-offset: 1px; }
+.casa-label {
+  position: absolute;
+  z-index: 50;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  white-space: nowrap;
+  transform: translate(-50%, -100%);
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(11, 13, 18, 0.88);
+  color: #f4f1ea;
+  font: 600 12px/1.25 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+.casa-label[hidden] { display: none; }
+/* the buddy's speech bubble (casa:hint) */
+.casa-say {
+  position: absolute;
+  z-index: 40;
+  max-width: 240px;
+  transform: translate(-30%, -100%);
+  padding: 6px 9px;
+  background: #fffdf8;
+  color: #18171c;
+  font: 600 12px/1.35 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-shadow: -2px 0 0 0 #18171c, 2px 0 0 0 #18171c, 0 -2px 0 0 #18171c, 0 2px 0 0 #18171c, 4px 4px 0 1px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+.casa-say[hidden] { display: none; }
+/* one soft glow on every object (casa:hint with pulse) */
+.casa-pulse .casa-hot { animation: casa-pulse 1.6s ease-out 1; }
+@keyframes casa-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(242, 193, 78, 0); }
+  35% { box-shadow: 0 0 0 3px rgba(242, 193, 78, 0.85); }
+  100% { box-shadow: 0 0 0 6px rgba(242, 193, 78, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .casa-pulse .casa-hot { animation: none; }
+}
+
+/* yellow tags pinned on coming-soon objects (room.js placeTags) */
+.casa-tag {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, calc(-100% - 2px));
+  padding: 2px 5px;
+  background: #f2c14e;
+  color: #1c2340;
+  font: 700 max(9px, calc(var(--casa-px, 3px) * 2.6))/1.1 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0 #1c2340;
+  pointer-events: none;
+}
+.casa-tag.end { transform: translate(-100%, calc(-100% - 2px)); }
+.casa-tag.add { background: #fffdf8; color: #1c2340; box-shadow: 0 0 0 1px #1c2340, 2px 2px 0 #1c2340; }

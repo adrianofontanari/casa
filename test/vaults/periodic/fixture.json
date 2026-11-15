@@ -1,0 +1,8 @@
+{
+  "description": "Periodic Notes settings present (daily folder Daily, format YYYY/MM/YYYY-MM-DD) but the Periodic Notes plugin itself is NOT installed (no main.js, not in community-plugins.json). Core Daily notes is off.",
+  "generate": [
+    { "path": "Daily/<<date:-1:YYYY/MM/YYYY-MM-DD>>.md", "from": "_gen/yesterday.md" },
+    { "path": "Daily/<<date:-3:YYYY/MM/YYYY-MM-DD>>.md", "from": "_gen/three-days-ago.md" },
+    { "path": "Daily/<<date:-40:YYYY/MM/YYYY-MM-DD>>.md", "from": "_gen/last-month.md" }
+  ]
+}

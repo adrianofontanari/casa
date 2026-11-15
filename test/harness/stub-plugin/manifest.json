@@ -1,0 +1,9 @@
+{
+  "id": "casa",
+  "name": "Casa",
+  "version": "0.0.0-stub",
+  "minAppVersion": "1.5.0",
+  "description": "Test stand-in for the Casa plugin. Registers a view with an iframe that says hello.",
+  "author": "Casa test harness",
+  "isDesktopOnly": false
+}

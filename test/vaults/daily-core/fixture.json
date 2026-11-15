@@ -1,0 +1,8 @@
+{
+  "description": "Core Daily notes on: folder Journal, format YYYY-MM-DD, template Templates/Daily. Past daily notes only (no note for today yet).",
+  "generate": [
+    { "path": "Journal/<<date:-1>>.md", "from": "_gen/yesterday.md" },
+    { "path": "Journal/<<date:-2>>.md", "from": "_gen/two-days-ago.md" },
+    { "path": "Journal/<<date:-5>>.md", "from": "_gen/five-days-ago.md" }
+  ]
+}

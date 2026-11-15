@@ -1,0 +1,237 @@
+{
+  "checked": "2026-11-09T23:06:57.565Z",
+  "requests": [
+    "https://geocoding-api.open-meteo.com/v1/search?name=San%20Francisco&count=8&language=en&format=json",
+    "https://api.open-meteo.com/v1/forecast?latitude=37.7749&longitude=-122.4194&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,is_day,wind_speed_10m,wind_direction_10m,wind_gusts_10m,surface_pressure,cloud_cover&daily=sunrise,sunset,uv_index_max&hourly=freezing_level_height,weather_code&timezone=auto&forecast_days=1",
+    "https://api.open-meteo.com/v1/forecast?latitude=37.7749&longitude=-122.4194&current=temperature_2m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset,uv_index_max,wind_speed_10m_max&hourly=temperature_2m,weather_code,precipitation_probability,precipitation,wind_speed_10m&timezone=auto&forecast_days=7&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch"
+  ],
+  "geocode": [
+    {
+      "name": "San Francisco",
+      "country": "United States",
+      "admin1": "California",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "countryCode": "US",
+      "timezone": "America/Los_Angeles",
+      "population": 827526
+    },
+    {
+      "name": "San Francisco Coacalco",
+      "country": "Mexico",
+      "admin1": "México",
+      "lat": 19.6296,
+      "lon": -99.1045,
+      "countryCode": "MX",
+      "timezone": "America/Mexico_City",
+      "population": 277959
+    },
+    {
+      "name": "San Francisco",
+      "country": "Philippines",
+      "admin1": "Caraga",
+      "lat": 8.5356,
+      "lon": 125.95,
+      "countryCode": "PH",
+      "timezone": "Asia/Manila",
+      "population": 79718
+    }
+  ],
+  "weather": {
+    "temp": 21,
+    "code": 3,
+    "day": true,
+    "feels": 21,
+    "hum": 71,
+    "cloud": 100,
+    "press": 1017,
+    "wind": {
+      "kmh": 10,
+      "gust": 14,
+      "dir": "WNW",
+      "speed": 10,
+      "gustSpeed": 14,
+      "unit": "km/h"
+    },
+    "uv": 3.6,
+    "uv_band": "moderate",
+    "uv_st": "ok",
+    "zero": 3710,
+    "code_hour": 3,
+    "sun": {
+      "rise": "06:43",
+      "set": "17:02",
+      "rise_h": 6.7167,
+      "set_h": 17.0333
+    },
+    "moon": {
+      "phase": 0.007,
+      "illum": 0,
+      "waxing": true,
+      "name": "new moon",
+      "age": 0.2
+    },
+    "where": {
+      "name": "San Francisco, California",
+      "lat": 37.7749,
+      "lon": -122.4194
+    },
+    "latlon": [
+      37.7749,
+      -122.4194
+    ],
+    "units": {
+      "temp": "°C",
+      "wind": "km/h",
+      "press": "hPa",
+      "precip": "mm"
+    },
+    "tz": {
+      "name": "America/Los_Angeles",
+      "offset": -28800
+    },
+    "observed": "2026-11-09T15:00",
+    "credit": "Weather data by Open-Meteo.com",
+    "creditHref": "https://open-meteo.com/",
+    "licence": "CC BY 4.0",
+    "licenceHref": "https://creativecommons.org/licenses/by/4.0/",
+    "at": "2026-11-09T23:06:57.381Z"
+  },
+  "forecast": {
+    "daily": [
+      {
+        "date": "2026-11-09",
+        "min": 52,
+        "max": 69,
+        "code": 45,
+        "pop": 1,
+        "sunrise": "06:43",
+        "sunset": "17:02",
+        "uv": 3.6,
+        "wind": 8
+      },
+      {
+        "date": "2026-11-10",
+        "min": 53,
+        "max": 71,
+        "code": 45,
+        "pop": 0,
+        "sunrise": "06:44",
+        "sunset": "17:02",
+        "uv": 4.1,
+        "wind": 10
+      },
+      {
+        "date": "2026-11-11",
+        "min": 52,
+        "max": 72,
+        "code": 45,
+        "pop": 0,
+        "sunrise": "06:45",
+        "sunset": "17:01",
+        "uv": 4,
+        "wind": 6
+      },
+      {
+        "date": "2026-11-12",
+        "min": 60,
+        "max": 72,
+        "code": 3,
+        "pop": 22,
+        "sunrise": "06:46",
+        "sunset": "17:00",
+        "uv": 4,
+        "wind": 9
+      },
+      {
+        "date": "2026-11-13",
+        "min": 58,
+        "max": 66,
+        "code": 81,
+        "pop": 64,
+        "sunrise": "06:48",
+        "sunset": "16:59",
+        "uv": 3.7,
+        "wind": 22
+      },
+      {
+        "date": "2026-11-14",
+        "min": 57,
+        "max": 63,
+        "code": 51,
+        "pop": 51,
+        "sunrise": "06:49",
+        "sunset": "16:58",
+        "uv": 3.3,
+        "wind": 12
+      },
+      {
+        "date": "2026-11-15",
+        "min": 56,
+        "max": 61,
+        "code": 81,
+        "pop": 58,
+        "sunrise": "06:50",
+        "sunset": "16:58",
+        "uv": 1.8,
+        "wind": 17
+      }
+    ],
+    "hourly": [
+      {
+        "t": "2026-11-09T15:00",
+        "temp": 69,
+        "code": 3,
+        "pop": 0,
+        "precip": 0,
+        "wind": 6
+      },
+      {
+        "t": "2026-11-09T16:00",
+        "temp": 67,
+        "code": 3,
+        "pop": 0,
+        "precip": 0,
+        "wind": 7
+      },
+      {
+        "t": "2026-11-09T17:00",
+        "temp": 63,
+        "code": 1,
+        "pop": 0,
+        "precip": 0,
+        "wind": 7
+      },
+      {
+        "t": "2026-11-09T18:00",
+        "temp": 61,
+        "code": 0,
+        "pop": 0,
+        "precip": 0,
+        "wind": 8
+      },
+      {
+        "t": "2026-11-09T19:00",
+        "temp": 60,
+        "code": 0,
+        "pop": 1,
+        "precip": 0,
+        "wind": 7
+      },
+      {
+        "t": "2026-11-09T20:00",
+        "temp": 59,
+        "code": 0,
+        "pop": 0,
+        "precip": 0,
+        "wind": 6
+      }
+    ],
+    "units": {
+      "temp": "°F",
+      "wind": "mph",
+      "press": "hPa",
+      "precip": "in"
+    }
+  }
+}

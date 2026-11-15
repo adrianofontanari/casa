@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ideas and questions
+    url: https://github.com/adrianofontanari/casa/discussions
+    about: Share ideas, ask how to set something up, or show your room.
+  - name: Documentation
+    url: https://github.com/adrianofontanari/casa/tree/main/docs
+    about: Install, first run, calendar links, privacy and troubleshooting.
+  - name: Packs waitlist
+    url: https://casa.adrianofontanari.com/#notify
+    about: Get one email when the Focus, Orbit, Living and Lighthouse packs are out.

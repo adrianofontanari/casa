@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+test/out/
+test/sandbox/
+*.log
+__pycache__/
+*.pyc
+assets/music/
+CONTRACT.md
+.private-words
+release/

@@ -1,0 +1,54 @@
+/* Casa view chrome. The room itself is styled inside its iframe (src/room/room.css). */
+.workspace-leaf-content[data-type="casa-room"] > .view-content.casa-view {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.casa-view .casa-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--background-primary);
+}
+
+/* settings tab */
+.casa-settings .casa-setting-wide {
+  width: 100%;
+  min-width: 16em;
+}
+
+.casa-settings .casa-setting-error {
+  color: var(--text-error);
+  margin-top: 4px;
+}
+
+.casa-settings .casa-setting-error:empty {
+  display: none;
+}
+
+.casa-settings .casa-setting-help {
+  margin: 6px 0 0;
+  padding-left: 1.2em;
+}
+
+.casa-settings .casa-setting-detected {
+  margin-top: 4px;
+  color: var(--text-faint);
+}
+
+.casa-settings .casa-city-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 0 12px;
+}
+
+.casa-settings .casa-city-results:empty {
+  display: none;
+}
+
+.casa-settings .casa-city-status {
+  color: var(--text-muted);
+}

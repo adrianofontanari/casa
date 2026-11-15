@@ -1,0 +1,29 @@
+name: Small improvement
+description: A concrete change to something Casa already does. For new ideas and open questions, please use Discussions.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bigger ideas, new objects and "what if" questions fit better in [Discussions](https://github.com/adrianofontanari/casa/discussions/categories/ideas), where others can join in.
+  - type: textarea
+    id: today
+    attributes:
+      label: What Casa does today
+      placeholder: The wall calendar shows only today's events.
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What you would like instead
+      placeholder: Show tomorrow's first event after 6 pm.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it helps
+      description: How you use your vault and where this fits in your day.
+    validations:
+      required: false

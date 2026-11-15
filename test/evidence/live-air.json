@@ -1,0 +1,53 @@
+{
+  "checked": "2026-11-09T23:06:58.373Z",
+  "requests": [
+    "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=37.7749&longitude=-122.4194&current=european_aqi,us_aqi,pm2_5,pm10,ozone,nitrogen_dioxide&timezone=auto",
+    "https://data.sensor.community/airrohr/v1/sensor/99626/",
+    "https://example.com/",
+    "https://casa-no-such-host.invalid/json"
+  ],
+  "cams": {
+    "aqi": 25,
+    "scale": "eu",
+    "band": "fair",
+    "st": "ok",
+    "eu": 25,
+    "us": 51,
+    "pm25": 7.3,
+    "pm10": 10.4,
+    "o3": 65,
+    "no2": 8.5,
+    "unit": "µg/m³",
+    "source": "open-meteo",
+    "at": "2026-11-09T15:00-08:00",
+    "credit": "Air quality: Copernicus Atmosphere Monitoring Service (CAMS) via Open-Meteo.com",
+    "creditHref": "https://open-meteo.com/en/docs/air-quality-api",
+    "licence": "CC BY 4.0 (Open-Meteo), Licence to use Copernicus Products",
+    "licenceHref": "https://creativecommons.org/licenses/by/4.0/",
+    "notice": "Contains modified Copernicus Atmosphere Monitoring Service information 2026. Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains."
+  },
+  "sensorCommunity": {
+    "aqi": 47,
+    "scale": "eu",
+    "band": "moderate",
+    "st": "warn",
+    "approx": true,
+    "pm25": 24.3,
+    "pm10": 70.4,
+    "o3": null,
+    "no2": null,
+    "unit": "µg/m³",
+    "source": "sensor",
+    "kind": "sensor.community",
+    "credit": "Your sensor (sensor.community)",
+    "at": "2026-11-09T23:06:58.327Z"
+  },
+  "unknownFormat": {
+    "error": "The sensor link at example.com did not return JSON",
+    "source": "sensor"
+  },
+  "unreachable": {
+    "error": "Could not reach the sensor at casa-no-such-host.invalid (unreachable)",
+    "source": "sensor"
+  }
+}

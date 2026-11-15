@@ -1,0 +1,43 @@
+{
+  "checked": "2026-11-09T23:06:57.461Z",
+  "requests": [
+    "https://www.ndbc.noaa.gov/buoycams.php",
+    "https://www.ndbc.noaa.gov/images/buoycam/W49A_2026_11_09_2210.jpg",
+    "https://www.ndbc.noaa.gov/images/buoycam/W49A_2026_11_09_2210.jpg",
+    "https://www.ndbc.noaa.gov/station_page.php?station=46026"
+  ],
+  "default": {
+    "src": "data:image/jpeg;base64,/9j/4AAQSkZJRgABA...",
+    "type": "image/jpeg",
+    "bytes": 80784,
+    "w": 2880,
+    "h": 300,
+    "credit": "NOAA National Data Buoy Center, station 46026, 18 nm west of San Francisco",
+    "href": "https://www.ndbc.noaa.gov/station_page.php?station=46026",
+    "licence": "Public domain (U.S. Government work, NOAA/NWS)",
+    "terms": "https://www.weather.gov/disclaimer",
+    "at": "2026-11-09T22:10:00.000Z",
+    "source": "default",
+    "station": "46026",
+    "name": "SAN FRANCISCO - 18NM West of San Francisco, CA",
+    "frames": 6,
+    "frameW": 480,
+    "frameH": 270,
+    "captionH": 30
+  },
+  "pasted": {
+    "src": "data:image/jpeg;base64,/9j/4AAQSkZJRgABA...",
+    "type": "image/jpeg",
+    "bytes": 80784,
+    "w": 2880,
+    "h": 300,
+    "credit": "www.ndbc.noaa.gov",
+    "href": "https://www.ndbc.noaa.gov/",
+    "source": "user",
+    "at": "2026-11-09T23:06:57.416Z"
+  },
+  "webPage": {
+    "error": "That link is a web page, not an image. Paste a direct image link (for example one ending in .jpg).",
+    "source": "user"
+  }
+}

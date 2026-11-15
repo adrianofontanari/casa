@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "calm": false,
+    "buddy": true,
+    "units": "metric",
+    "city": { "name": "Testville", "lat": 0, "lon": 0 },
+    "weatherOn": false,
+    "calendarUrl": "",
+    "webcamOn": false,
+    "webcamUrl": "",
+    "airOn": false,
+    "airUrl": "",
+    "musicOn": false,
+    "onboarded": true,
+    "dailyMode": "auto"
+  },
+  "state": {},
+  "mods": {},
+  "meta": {}
+}
