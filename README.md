@@ -7,7 +7,7 @@
 <p align="center"><b>Make your second brain feel like home.</b><br>A pixel room for your Obsidian vault.</p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrianofontanari/casa/main/assets/screenshot.png" alt="The Casa room by day: a banner with today's goal, a wall calendar, a window with the weather, a desk with a typewriter, the agenda, headphones and a TV, a cork board, a buddy and a sleeping dog.">
+  <img src="https://raw.githubusercontent.com/adrianofontanari/casa/main/assets/casa-day.gif" alt="The Casa room through one day: morning light, noon, sunset, and night with the desk lamp on. A banner with today's goal, a wall calendar, a window with the weather, a desk with a typewriter, headphones and a TV, a penguin on the bookcase and a dog asleep on a rug.">
 </p>
 
 Casa reads your notes and draws them as a room you can glance at: today's goal on the banner, your tasks in the agenda, your calendar on the wall and the real weather in the window. Your notes stay as they are: no new syntax, no other plugin needed.
