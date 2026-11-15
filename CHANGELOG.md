@@ -5,6 +5,15 @@ All notable changes to Casa are listed here. Versions follow
 [GitHub release](https://github.com/adrianofontanari/casa/releases) with
 `main.js`, `manifest.json` and `styles.css`.
 
+## 0.1.1 - 2026-11-15
+
+### Fixed
+- README: the Copernicus air quality notice no longer shows a `[year]`
+  placeholder.
+- Room stylesheet: dropped a duplicate `image-rendering` line and the
+  `ui-monospace` font name, which Obsidian does not support. The room looks
+  the same.
+
 ## 0.1.0 - 2026-11-15
 
 First public version.

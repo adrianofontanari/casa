@@ -31,7 +31,6 @@ body {
   position: absolute;
   display: block;
   image-rendering: pixelated;
-  image-rendering: crisp-edges;
   pointer-events: none;
 }
 .casa-canvas { left: 0; top: 0; }
@@ -56,7 +55,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
   font-weight: 600;
   letter-spacing: -0.02em;
 }

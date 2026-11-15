@@ -1,7 +1,7 @@
 {
 	"id": "casa",
 	"name": "Casa",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"minAppVersion": "1.7.2",
 	"description": "A cozy pixel-art room that shows today's goal, tasks, calendar and weather from your daily notes. Works offline, no account needed.",
 	"author": "Adriano Fontanari",

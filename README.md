@@ -133,7 +133,7 @@ Casa works offline. It never sends your notes. Each source below has an off swit
 
 Turn every source off (**Weather data**, **Air quality**, **Webcam** and **Music** off, no calendar link) and Casa makes no network request at all.
 
-Air quality notice: Generated using Copernicus Atmosphere Monitoring Service information [year]. Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains. The room shows it with the current year.
+Air quality notice, as the room shows it (with the current year): Generated using Copernicus Atmosphere Monitoring Service information 2026. Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains.
 
 Casa does not download or run code, and it does not update itself. Updates come only through Obsidian.
 
