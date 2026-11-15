@@ -43,7 +43,7 @@ Every object is described in [docs/objects.md](https://github.com/adrianofontana
 
 New to Obsidian? [Download it here](https://obsidian.md/download) first.
 
-Manual install: download `main.js`, `manifest.json` and `styles.css` from the [latest release](https://github.com/adrianofontanari/casa/releases/latest) into `<your vault>/.obsidian/plugins/casa/`, then enable Casa. Details: [docs/install.md](https://github.com/adrianofontanari/casa/blob/main/docs/install.md).
+Manual install: download `main.js`, `manifest.json` and `styles.css` from the [latest release](https://github.com/adrianofontanari/casa/releases/latest) into the `.obsidian/plugins/casa/` folder of your vault, then enable Casa. Details: [docs/install.md](https://github.com/adrianofontanari/casa/blob/main/docs/install.md).
 
 ## First run
 
@@ -108,7 +108,7 @@ You can edit the note by hand: a bullet without the comment becomes a yellow pos
 
 **Quotes** come from `Casa/Quotes.md`, one per line (`Quote - Author` works too). Until that note exists, the typewriter uses 20 built-in public-domain quotes. Your first added quote creates the note with those 20 inside, then adds yours.
 
-**Casa's settings** (your city, links and room preferences) are saved by Obsidian in `<your vault>/.obsidian/plugins/casa/data.json`.
+**Casa's settings** (your city, links and room preferences) are saved by Obsidian in `.obsidian/plugins/casa/data.json` inside your vault.
 
 ## Settings
 
