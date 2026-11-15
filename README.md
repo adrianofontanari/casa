@@ -63,8 +63,8 @@ Casa needs no other plugin and no template. To find today's note it reads, in th
 2. the core **Daily notes** settings;
 3. the **Periodic Notes** settings (daily notes);
 4. the **Journals** settings (the first daily journal);
-5. a folder that already holds daily notes named `YYYY-MM-DD.md`;
-6. otherwise Casa's default: `Daily/YYYY-MM-DD.md`.
+5. a folder that already holds daily notes named by date, like `2026-11-15.md`;
+6. otherwise Casa's default: one note per day in `Daily/`, named by date (`Daily/2026-11-15.md`).
 
 The settings files of those plugins are enough: they do not need to be installed or running. If more than one is set up, the one with notes from the last month wins. Casa only reads their settings and never changes them.
 
@@ -82,16 +82,16 @@ When you write a goal, Casa updates that line or property in place. If there is 
 
 **Tasks.** The agenda shows:
 
-- every checkbox in today's note (`- [ ]`, `- [x]`, numbered lists and quotes too). Empty checkboxes, cancelled `[-]` tasks and checkboxes inside code blocks are ignored;
-- tasks anywhere in the vault with a Tasks plugin date: due `📅 YYYY-MM-DD`, scheduled `⏳ YYYY-MM-DD`. Overdue ones come first, then today's, then the ones done today (`✅`). The next 7 days are on the following pages.
+- every checkbox in today's note, open or ticked (numbered lists and quotes too). Empty checkboxes, cancelled tasks and checkboxes inside code blocks are ignored;
+- tasks anywhere in the vault with a Tasks plugin date: due `📅 2026-11-20`, scheduled `⏳ 2026-11-18`. Overdue ones come first, then today's, then the ones done today (`✅`). The next 7 days are on the following pages.
 
 The Tasks plugin is not needed. If it is installed, Casa respects its global filter and lets it tick its own tasks, so recurring tasks roll over.
 
 | You do | Casa writes |
 |---|---|
-| Tick or untick | `[ ]` becomes `[x]` or back. On a line that already uses Tasks dates, Casa adds or removes `✅ YYYY-MM-DD` |
+| Tick or untick | The checkbox in your note is ticked or unticked to match. On a line that already uses Tasks dates, Casa adds or removes the done date (`✅ 2026-11-15`) |
 | Edit | The task's text. The checkbox, dates and block id stay |
-| Add | `- [ ] text` under the first heading with "task" or "to do" in today's note; with no such heading, `## Tasks` at the end |
+| Add | A new open task under the first heading with "task" or "to do" in today's note; with no such heading, `## Tasks` at the end |
 
 Before writing, Casa checks that the line has not changed since it read it. If it has, nothing is written and the agenda reloads.
 
