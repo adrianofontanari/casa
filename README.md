@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/adrianofontanari/casa/main/assets/icon.png" alt="Casa" width="96" height="96"><br><b>Make your second brain feel like home.</b><br>A pixel room for your Obsidian vault.<br>An engine ready to build a home for your second brain, highly customisable.</p>
+<p align="center"><img src="https://raw.githubusercontent.com/adrianofontanari/casa/main/assets/icon.png" alt="Casa" width="96" height="96"><br><b>Make your second brain feel like home.</b><br>A pixel room for your Obsidian vault.<br>Casa is the engine to build your cozy digital home, highly customisable.</p>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/adrianofontanari/casa/main/assets/casa-day.gif" alt="The Casa room through one day: morning light, noon, sunset, and night with the desk lamp on. A banner with today's goal, a wall calendar, a window with the weather, a desk with a typewriter, headphones and a TV, a penguin on the bookcase and a dog asleep on a rug.">
