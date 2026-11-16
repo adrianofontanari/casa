@@ -1,10 +1,4 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/adrianofontanari/casa/main/assets/icon.png" alt="Casa icon" width="96" height="96">
-</p>
-
-<h1 align="center">Casa</h1>
-
-<p align="center"><b>Make your second brain feel like home.</b><br>A pixel room for your Obsidian vault.</p>
+<p align="center"><img src="https://raw.githubusercontent.com/adrianofontanari/casa/main/assets/icon.png" alt="Casa" width="96" height="96"><br><b>Make your second brain feel like home.</b><br>A pixel room for your Obsidian vault.<br>An engine ready to build a home for your second brain, highly customisable.</p>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/adrianofontanari/casa/main/assets/casa-day.gif" alt="The Casa room through one day: morning light, noon, sunset, and night with the desk lamp on. A banner with today's goal, a wall calendar, a window with the weather, a desk with a typewriter, headphones and a TV, a penguin on the bookcase and a dog asleep on a rug.">
@@ -30,6 +24,7 @@ Casa is free. Desktop only: Mac, Windows and Linux.
 - **A typewriter** with a new quote every hour, from your own list or a built-in one.
 - **Headphones** with a player for lofi music and ambient sounds (sea, rain, fire, birds).
 - **Post-its** on the cork board: add, edit, move and remove them.
+- **Your own objects and rooms.** The **Add yours +** ticket under the calendar copies a prompt for your AI coding assistant (for example Claude Code): describe an object or attach a photo of the real thing, and it is added to your room in Casa's style. Optional: Casa itself needs no AI, and it only copies the prompt, it sends nothing.
 - **Your battery** on the power strip.
 
 Every object is described in [docs/objects.md](https://github.com/adrianofontanari/casa/blob/main/docs/objects.md).
